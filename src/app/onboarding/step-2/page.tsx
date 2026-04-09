@@ -13,30 +13,13 @@ export default function Step2() {
   const [loading, setLoading] = useState(false)
 
   async function handleSignUp() {
-    setError(null)
-    setLoading(true)
-    const supabase = createClient()
-
-    const { error } = await supabase.auth.signUp({ email, password })
-
-    if (error) {
-      setError(error.message)
-      setLoading(false)
-      return
-    }
-
+    // TODO: убрать заглушку, вернуть реальную регистрацию
     router.push('/onboarding/step-3')
   }
 
   async function handleGoogle() {
-    const supabase = createClient()
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
-      },
-    })
-    if (error) setError(error.message)
+    // TODO: убрать заглушку, вернуть Google OAuth
+    router.push('/onboarding/step-3')
   }
 
   return (
