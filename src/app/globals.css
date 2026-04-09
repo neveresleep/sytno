@@ -1,26 +1,37 @@
 @import "tailwindcss";
 
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&family=Nunito:wght@400;500;600&display=swap");
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --accent: #993C1D;
+  --accent-light: #FAECE7;
+  --accent-medium: #F0997B;
+  --bg-page: #F8F5F2;
+  --bg-card: #FFFFFF;
+  --border: #F0EBE5;
+  --text-primary: #1A1A1A;
+  --text-secondary: #666666;
+  --text-tertiary: #BBBBBB;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-medium: var(--accent-medium);
+  --color-bg-page: var(--bg-page);
+  --color-bg-card: var(--bg-card);
+  --color-border: var(--border);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Nunito", sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+}
+
+.font-display {
+  font-family: "Unbounded", sans-serif;
 }
