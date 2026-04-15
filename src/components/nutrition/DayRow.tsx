@@ -1,23 +1,30 @@
 'use client'
 
 import { MealCard } from './MealCard'
+import type { Meal } from './MealCard'
+
+interface DayMeals {
+  breakfast: Meal
+  lunch: Meal
+  dinner: Meal
+}
 
 interface DayRowProps {
   dayLabel: string
   dateNum: number
-  breakfast: string
-  lunch: string
-  dinner: string
+  meals?: DayMeals | null
   isToday?: boolean
+  placeholder?: boolean
+  loading?: boolean
 }
 
 export function DayRow({
   dayLabel,
   dateNum,
-  breakfast,
-  lunch,
-  dinner,
+  meals,
   isToday = false,
+  placeholder = false,
+  loading = false,
 }: DayRowProps) {
   return (
     <div
@@ -47,10 +54,12 @@ export function DayRow({
       </div>
 
       <div className="flex-1 flex gap-2 min-w-0">
-        <MealCard type="breakfast" name={breakfast} />
-        <MealCard type="lunch" name={lunch} />
-        <MealCard type="dinner" name={dinner} />
+        <MealCard type="breakfast" meal={meals?.breakfast} placeholder={placeholder} loading={loading} />
+        <MealCard type="lunch" meal={meals?.lunch} placeholder={placeholder} loading={loading} />
+        <MealCard type="dinner" meal={meals?.dinner} placeholder={placeholder} loading={loading} />
       </div>
     </div>
   )
 }
+
+export type { DayMeals }
